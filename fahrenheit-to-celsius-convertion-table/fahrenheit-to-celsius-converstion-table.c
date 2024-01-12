@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main() {
+void convertionTabletFromFahrenheitToCelcius(void) {
     const int upper = 300;
     const int lower = 0;
     int fahr = lower;
@@ -12,5 +12,25 @@ int main() {
         printf("%d\t%d\n", fahr, celsius);
         fahr = fahr + step;
     }
+}
+
+void convertionTabletFromCelciusToFahrenheit(void) {
+    const int upper = 300;
+    const int lower = 0;
+    int celsius = lower;
+    printf("Temperature conversion table\n");
+    printf("\nCº\tFº\n");
+    while (celsius <= upper) {
+        const int step = 20;
+        const int fahr = (9 * celsius) / 5 + 32;
+        printf("%d\t%d\n", celsius, fahr);
+        celsius = celsius + step;
+    }
+}
+
+int main() {
+    convertionTabletFromFahrenheitToCelcius();
+    printf("\n");
+    convertionTabletFromCelciusToFahrenheit();
     return 0;
 }
