@@ -1,31 +1,22 @@
 #include <stdio.h>
 
 #define Debug
+
 int main(void) {
-  // Count blanks tabs and new lines
+  // Program to copy its input to its output, replacing each string of one or
+  // more blanks by a single blank.
   int c;
-  int nc = 0;
-  int nl = 0;
-  int nt = 0;
-  int nb = 0;
-
+  int lastc = 0;
   while ((c = getchar()) != EOF) {
-    ++nc;
-    if (c == '\n') {
-      ++nl;
-    } else if (c == '\t') {
-      ++nt;
-    } else if (c == ' ') {
-      ++nb;
+    if (c == ' ') {
+      if (lastc != ' ') {
+        putchar(c);
+      }
     }
+    else {
+      putchar(c);
+    }
+    lastc = c;
   }
-
-  printf("%d %d %d\n", nl, nt, nb);
-
-// print only number of characters if debug is defined
-#ifdef Debug
-  printf("%d\n", nc);
-#endif
-
   return 0;
 }
