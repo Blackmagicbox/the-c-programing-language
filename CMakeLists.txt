@@ -9,3 +9,4 @@ add_executable(fahrenheit-to-celsius-conversion-table fahrenheit-to-celsius-conv
 add_executable(number-guessing-game number-guessing-game/number-guessing-number.c)
 add_executable(print-char print-char/print-char.c)
 add_executable(word-counter word-counter/word-counter.c)
+add_executable(merge-strings-alternately merge-strings-alternately/merge-strings-alternately.c)
