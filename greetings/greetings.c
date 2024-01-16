@@ -9,8 +9,11 @@ int main (int argc, char *argv[]) {
   clock = localtime(&now);
   hour = clock -> tm_hour;
 
-  printf("Good ");
+  if(hour < 5) {
+    printf("Working late? ");
+  }
 
+  printf("Good ");
   if(hour < 12) {
     printf("morning, ");
   } else if (hour < 17) {
@@ -24,6 +27,8 @@ int main (int argc, char *argv[]) {
   } else {
     printf("code master!\n");
   }
+
+  printf("It is: %s\n", ctime(&now));
 
   return 0;
 }
