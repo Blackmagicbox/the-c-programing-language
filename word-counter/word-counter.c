@@ -1,22 +1,27 @@
 #include <stdio.h>
 
-#define Debug
+#define IN 1
+#define OUT 0
 
 int main(void) {
-  // Program to copy its input to its output, replacing each string of one or
-  // more blanks by a single blank.
+  printf("World counter\n");
+  
+  int nw = 0;
   int c;
-  int lastc = 0;
-  while ((c = getchar()) != EOF) {
-    if (c == ' ') {
-      if (lastc != ' ') {
-        putchar(c);
-      }
+  int state = OUT;
+  
+  while((c = getchar()) != EOF) {
+    if(c == ' ' || c == '\n' || c == '\t') {
+      state = OUT;
+    } else if (state == OUT) {
+      state = IN;
+      nw++;
+      putchar('\n');
     }
-    else {
-      putchar(c);
-    }
-    lastc = c;
-  }
+    putchar(c);
+  }   
+  
+  printf("The number of words typed is %d\n", nw);
+  
   return 0;
 }
