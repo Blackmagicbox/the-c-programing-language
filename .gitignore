@@ -57,5 +57,8 @@ cmake-build-debug*
 # Jetbrains
 .idea/
 
+# Vscode
+.vscode/
+
 # MacOs
 .DS_Store

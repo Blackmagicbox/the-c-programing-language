@@ -1,0 +1,3 @@
+# executable
+greeting: greeting.o
+    $(CC) $(CFLAGS) -o greeting greeting.o
