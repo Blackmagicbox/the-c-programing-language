@@ -5,16 +5,16 @@
 int moon_phase (int year, int month, int day) {
 
   // int d;
+  int d = 0;
   int g, e;
 
-  // d = day;
 
   // // Convert month number to be 3..14 (March=3, April=4, etc.)
-  // if (month == 2) {
-  //   d += 31;
-  // } else if (month > 3) {
-  //   d += 59 + (month - 3)*30.6 +  0.5;
-  // }
+  if (month == 2) {
+    d += 31;
+  } else if (month > 3) {
+    d += 59 + (month - 3)*30.6 +  0.5;
+  }
 
   // Separate out centuries and years
   g = (year - 1900) % 19;
@@ -26,7 +26,7 @@ int moon_phase (int year, int month, int day) {
   }
 
   // Find full moon's calendar date
-  return ((((e + 1) * 6+5) % 177) / 22 & 7);
+  return ((((e + d) * 6+5) % 177) / 22 & 7);
 }
 
 char *get_moon_phase_name (int phase) {
