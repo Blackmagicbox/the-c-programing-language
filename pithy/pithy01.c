@@ -1,16 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #define BSIZE 256
 #define NUMBER_OF_RECORDS 100
 
 int main() {
-  const char filename[] = "pithy.txt";
+  const char filename[] = "/usr/local/bin/pithy.txt";
   FILE *fp;
   char buffer[BSIZE];
   char *r, *entry;
   int items = 0;
+  int saying;
   char **list_base;
 
   fp = fopen(filename, "r");
@@ -54,9 +56,13 @@ int main() {
 
   fclose(fp);
 
-  for(int x = 0; x < items; x++) {
-    printf("%s",*(list_base+x));
-  }
+  // for(int x = 0; x < items; x++) {
+  //   printf("%s",*(list_base+x));
+  // }
+
+  srand((unsigned)time(NULL));
+  saying = rand() % (items - 1);
+  printf("%s", *(list_base+saying));
 
   return (0);
 }
