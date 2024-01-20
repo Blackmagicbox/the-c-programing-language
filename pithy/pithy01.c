@@ -5,9 +5,10 @@
 
 #define BSIZE 256
 #define NUMBER_OF_RECORDS 100
+#define FILE_PATH "/usr/local/bin/pithy.txt"
 
 int main() {
-  const char filename[] = "/usr/local/bin/pithy.txt";
+  const char filename[] = FILE_PATH;
   FILE *fp;
   char buffer[BSIZE];
   char *r, *entry;
@@ -45,7 +46,7 @@ int main() {
     items++;
 
     if(items%100 == 0) {
-      list_base = (char **) realloc(list_base, sizeof(char *) * (items+100));
+      list_base = (char **) realloc(list_base, sizeof(char *) * (items+NUMBER_OF_RECORDS));
       if( list_base == NULL) {
         fprintf(stderr, "Unable to allocate memory\n");
         exit(1);
