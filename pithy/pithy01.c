@@ -5,7 +5,7 @@
 
 #define BSIZE 256
 #define NUMBER_OF_RECORDS 100
-#define FILE_PATH "/usr/local/bin/pithy.txt"
+#define FILE_PATH "./pithy.txt"
 
 int main() {
   const char filename[] = FILE_PATH;
@@ -57,13 +57,10 @@ int main() {
 
   fclose(fp);
 
-  // for(int x = 0; x < items; x++) {
-  //   printf("%s",*(list_base+x));
-  // }
-
   srand((unsigned)time(NULL));
   saying = rand() % (items - 1);
   printf("%s", *(list_base+saying));
 
+  free(list_base);
   return (0);
 }
