@@ -10,8 +10,7 @@
 
 
 int main() {
-
-  char natoPhoneticAlphabet[ALPHABET_LENGTH][8] = {
+  char nato[ALPHABET_LENGTH][8] = {
       "Alpha",
       "Bravo",
       "Charlie",
@@ -40,30 +39,6 @@ int main() {
       "Zulu"
   };
 
-  char *natoPhoneticIndex[PHONETIC_INDEX_LENGTH];
-
-  int l = ASCII_LOWER_CASE_A;
-  for (int i = 0; i < ALPHABET_LENGTH; i++) {
-    natoPhoneticIndex[l] = natoPhoneticAlphabet[i];
-    l++;
-  }
-
-  char input_char;
-
-  // Get input_char from input
-  printf("Enter a string: ");
-
-  while ((input_char = getchar()) != '\n') {
-    if (input_char >= ASCII_UPPER_CASE_A && input_char <= ASCII_UPPER_CASE_Z) {
-      input_char = input_char + ASCII_UPPER_CASE_TO_LOWER_CASE_DIFFERENCE;
-    }
-    if (input_char >= ASCII_LOWER_CASE_A && input_char <= ASCII_LOWER_CASE_Z) {
-      printf("%s-", natoPhoneticIndex[(int) input_char]);
-    } else {
-      putchar(input_char);
-    }
-  }
-  printf("\n");
 
   return 0;
 }
