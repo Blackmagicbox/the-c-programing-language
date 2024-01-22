@@ -12,41 +12,15 @@
 int main() {
 
   char natoPhoneticAlphabet[ALPHABET_LENGTH][8] = {
-      "Alpha",
-      "Bravo",
-      "Charlie",
-      "Delta",
-      "Echo",
-      "Foxtrot",
-      "Golf",
-      "Hotel",
-      "India",
-      "Juliett",
-      "Kilo",
-      "Lima",
-      "Mike",
-      "November",
-      "Oscar",
-      "Papa",
-      "Quebec",
-      "Romeo",
-      "Sierra",
-      "Tango",
-      "Uniform",
-      "Victor",
-      "Whiskey",
-      "X-ray",
-      "Yankee",
-      "Zulu"
+      "Alpha","Bravo","Charlie","Delta",
+      "Echo","Foxtrot","Golf","Hotel",
+      "India","Juliett","Kilo","Lima",
+      "Mike","November","Oscar","Papa",
+      "Quebec","Romeo","Sierra","Tango",
+      "Uniform","Victor","Whiskey","X-ray",
+      "Yankee","Zulu"
   };
 
-  char *natoPhoneticIndex[PHONETIC_INDEX_LENGTH];
-
-  int l = ASCII_LOWER_CASE_A;
-  for (int i = 0; i < ALPHABET_LENGTH; i++) {
-    natoPhoneticIndex[l] = natoPhoneticAlphabet[i];
-    l++;
-  }
 
   char input_char;
 
@@ -58,7 +32,7 @@ int main() {
       input_char = input_char + ASCII_UPPER_CASE_TO_LOWER_CASE_DIFFERENCE;
     }
     if (input_char >= ASCII_LOWER_CASE_A && input_char <= ASCII_LOWER_CASE_Z) {
-      printf("%s-", natoPhoneticIndex[(int) input_char]);
+      printf("%s-", natoPhoneticAlphabet[input_char - ASCII_LOWER_CASE_A]);
     } else {
       putchar(input_char);
     }
