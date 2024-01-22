@@ -39,6 +39,26 @@ int main() {
       "Zulu"
   };
 
+  char phrase[64];
+  char ch = ' ';
 
-  return 0;
+  
+  printf("Enter a word or phrase: ");
+  fgets(phrase,64, stdin);
+
+
+  int i = 0;
+  while(phrase[i]) {
+    ch = toupper(phrase[i]);
+    if(isalpha(ch)) {
+      printf("%s-", nato[ch - 'A']);
+    }
+    i++;
+    if(i== 64) {
+      break;
+    }
+  }
+  putchar('\n');
+  
+  return (0);
 }
