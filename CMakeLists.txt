@@ -13,5 +13,5 @@ add_executable(merge-strings-alternately merge-strings-alternately/merge-strings
 add_executable(greetings greetings/greetings.c)
 add_executable(reveal-special-characters reveal-special-characters/reveal-special-characters.c)
 add_executable(pithy pithy/pithy01.c)
-add_executable(nato_phonetic_alphabet nato_phonetic_alphabet/nato_phonetic_alphabet_converter.c
-        nato_phonetic_alphabet/nato_phonetic_alphabet_parser.c)
+add_executable(nato_phonetic_alphabet_converter nato_phonetic_alphabet_converter/nato_phonetic_alphabet_converter.c)
+add_executable(nato_phonetic_alphabet_parser nato_phonetic_alphabet_converter/nato_phonetic_alphabet_parser.c)
