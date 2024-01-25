@@ -26,13 +26,13 @@ int main(int argc, char *argv[]) {
   char ch;
 
   if (argc < 2) {
-    printf(stderr, "Provide a file name\n");
+    printf((const char *) stderr, "Provide a file name\n");
     return 1;
   }
 
   n = fopen(argv[1], "r");
   if(n == NULL) {
-    printf("Error opening file\n");
+    perror("open");
     return 1;
   }
 

@@ -37,17 +37,24 @@ int main(int argc, char *argv[]) {
   char *match;
   char ch;
 
-  printf("Enter some text: ");
-  fgets(phrase, 64, stdin);
-
-  match = strtok(phrase, " .-,?\"!");
-
-  while (match) {
-    if((ch = isTerm(match)) != '\0') {
-      putchar(ch);
-    }
-    match = strtok(NULL, " .-,?\"!");
+  if(argc != 2) {
+    printf("Usage: %s <filename>\n", argv[0]);
+    return (1);
   }
+
+  FILE *n = fopen(argv[1], "r");
+
+  while(!feof(n)) {
+    fgets(phrase, 64, n);
+    match = strtok(phrase, " .-,?\"!");
+    while (match) {
+      if((ch = isTerm(match)) != '\0') {
+        putchar(ch);
+      }
+      match = strtok(NULL, " .-,?\"!");
+    }
+  }
+
   putchar('\n');
 
   return (0);
