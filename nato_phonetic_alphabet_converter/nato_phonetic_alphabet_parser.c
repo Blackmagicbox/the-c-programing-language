@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 char isTerm(char *term) {
   const char nato[26][8] = {
@@ -33,9 +34,9 @@ char isTerm(char *term) {
 
 
 int main(int argc, char *argv[]) {
-  char phrase[64];
-  char *match;
   char ch;
+  int offset = 0;
+  char word[64];
 
   if(argc != 2) {
     printf("Usage: %s <filename>\n", argv[0]);
@@ -43,15 +44,22 @@ int main(int argc, char *argv[]) {
   }
 
   FILE *n = fopen(argv[1], "r");
+  if(n == NULL) {
+    perror("open");
+    return (1);
+  }
 
-  while(!feof(n)) {
-    fgets(phrase, 64, n);
-    match = strtok(phrase, " .-,?\"!");
-    while (match) {
-      if((ch = isTerm(match)) != '\0') {
-        putchar(ch);
+  while((ch = fgetc(n)) != EOF) {
+    if( isalpha(ch)) {
+      word[offset++] = ch;
+      if(offset >= 64) {
+        printf("Word too long, buffer overflow\n");
+        return (1);
       }
-      match = strtok(NULL, " .-,?\"!");
+    } else if(offset > 0) {
+      word[offset] = '\0';
+      putchar(isTerm(word));
+      offset = 0;
     }
   }
 
