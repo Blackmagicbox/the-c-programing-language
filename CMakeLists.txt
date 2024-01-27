@@ -15,3 +15,4 @@ add_executable(reveal-special-characters reveal-special-characters/reveal-specia
 add_executable(pithy pithy/pithy01.c)
 add_executable(nato_phonetic_alphabet_converter nato_phonetic_alphabet_converter/nato_phonetic_alphabet_converter.c)
 add_executable(nato_phonetic_alphabet_parser nato_phonetic_alphabet_converter/nato_phonetic_alphabet_parser.c)
+add_executable(caesarean_cypher caesarean_cypher/caesarean_cypher.c)
