@@ -1,11 +1,6 @@
 #include <stdio.h>
 
 int main() {
-    int myFavoriteNumber = 0;
-
-    printf("Enter your favorite number: ");
-    scanf("%d", &myFavoriteNumber);
-    printf("Your favorite number is %d\n", myFavoriteNumber);
-
-    return 0;
+  printf("The C programming language, a collection of small C projects to help undertanding and learning the most powerfull language there is");
+  return 0;
 }
