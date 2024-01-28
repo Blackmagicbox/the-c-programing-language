@@ -23,9 +23,14 @@ int main(void) {
   int correct_guess = 0;
   int lives = 5;
 
+  // Clear the Screen
+  printf("\033[H\033[J");
+
+  // Print the game state
   printf("Guess the word:\n");
   printf("%s\n", display);
   print_lives(lives);
+
 
   while ((guess = getchar()) != '0' && lives >0 && correct_guess < strlen(word)) {
     if(guess == '\n') continue;
@@ -51,6 +56,12 @@ int main(void) {
     } else {
       lives--;
     }
+
+    // Clear the Screen
+    printf("\033[H\033[J");
+
+    // Print the game state
+    printf("Guess the word:\n");
     printf("%s\n", display);
     print_lives(lives);
   }
