@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <stdbool.h>
 
-void convertionTabletFromFahrenheitToCelcius(const bool r) {
+void conversionTabletFromFahrenheitToCelsius(const bool r) {
     const int upper = 300;
     const int lower = 0;
     int fahr = lower;
@@ -26,7 +27,7 @@ void convertionTabletFromFahrenheitToCelcius(const bool r) {
     }
 }
 
-void convertionTabletFromCelciusToFahrenheit(const bool r) {
+void conversionTabletFromCelsiusToFahrenheit(const bool r) {
     const int upper = 300;
     const int lower = 0;
     int celsius = lower;
@@ -53,10 +54,10 @@ void convertionTabletFromCelciusToFahrenheit(const bool r) {
 }
 
 int main() {
-    convertionTabletFromFahrenheitToCelcius(0);
+  conversionTabletFromFahrenheitToCelsius(0);
     printf("\n");
-    convertionTabletFromCelciusToFahrenheit(0);
+  conversionTabletFromCelsiusToFahrenheit(0);
     printf("\n");
-    convertionTabletFromFahrenheitToCelcius(1);
+  conversionTabletFromFahrenheitToCelsius(1);
     return 0;
 }
