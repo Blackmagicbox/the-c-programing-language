@@ -2,6 +2,8 @@
 #include <string.h>
 #include <ctype.h>
 
+#define LIVES 5
+
 void print_lives(int lives) {
   printf("Lives: ");
   for (int i = 0; i < lives; i++) {
@@ -21,7 +23,7 @@ int main(void) {
 
   char guess;
   int correct_guess = 0;
-  int lives = 5;
+  int lives = LIVES;
 
   // Clear the Screen
   printf("\033[H\033[J");
