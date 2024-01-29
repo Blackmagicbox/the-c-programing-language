@@ -39,9 +39,8 @@ int main(void) {
 
     char guessToUpper = toupper(guess);
     int hasTheLetter = 0;
-    for (int i = 0; i < strlen(word); i++) {
-      if (guessToUpper == word[i]) {
-        display[i] = word[i];
+    for (char *c = word; *c != '\0'; c++) {
+      if (guessToUpper == *c) {
         hasTheLetter ^= 1;
         break;
       }
