@@ -17,3 +17,4 @@ add_executable(nato_phonetic_alphabet_converter nato_phonetic_alphabet_converter
 add_executable(nato_phonetic_alphabet_parser nato_phonetic_alphabet_converter/nato_phonetic_alphabet_parser.c)
 add_executable(caesarean_cypher caesarean_cypher/caesarean_cypher.c)
 add_executable(hangman hangman/hangman.c)
+add_executable(hex_filter hex-filter/hex-filter.c)
