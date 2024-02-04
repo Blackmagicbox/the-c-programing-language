@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.27)
 project(the_c_programing_language C)
 
-set(CMAKE_C_STANDARD 23)
+set(CMAKE_C_STANDARD 99)
 
 add_executable(the_c_programing_language main.c)
 add_executable(print-name print-name/print-name.c)
@@ -19,3 +19,4 @@ add_executable(caesarean_cypher caesarean_cypher/caesarean_cypher.c)
 add_executable(hangman hangman/hangman.c)
 add_executable(hex_filter hex-filter/hex-filter.c)
 add_executable(nato_filter nato_filter/nato_filter.c)
+add_executable(word-filter word-filter/word_filter.c)

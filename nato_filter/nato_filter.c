@@ -3,22 +3,22 @@
 
 void printUsage() {
   // Get stdin from the user or from a pipe and put the output to a file
-  printf("Usage: nato_filter < input.txt | stdin\n" );
+  printf("Usage: nato_filter < input.txt | stdin\n");
 }
 
 
 int main(const int argc, char *argv[]) {
 
-  if(argc > 1) {
+  if (argc > 1) {
     printUsage();
     return 1;
   }
 
   char *nato[] = {
-      "Alpha",  "Bravo",   "Charlie", "Delta",  "Echo",   "Foxtrot", "Golf",
-      "Hotel",  "India",   "Juliett", "Kilo",   "Lima",   "Mike",    "November",
-      "Oscar",  "Papa",    "Quebec",  "Romeo",  "Sierra", "Tango",   "Uniform",
-      "Victor", "Whiskey", "Xray",    "Yankee", "Zulu"};
+      "Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf",
+      "Hotel", "India", "Juliett", "Kilo", "Lima", "Mike", "November",
+      "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform",
+      "Victor", "Whiskey", "Xray", "Yankee", "Zulu"};
   char ch;
 
   // Replace characters by their NATO phonetic alphabet and put to a file named
@@ -42,6 +42,6 @@ int main(const int argc, char *argv[]) {
   fclose(fp);
 
   printf("Done! Check the file natoed-text.txt\n");
-  
+
   return 0;
 }
