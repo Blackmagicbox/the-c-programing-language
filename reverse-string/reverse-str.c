@@ -1,15 +1,16 @@
 #include <stdio.h>
+#include <string.h>
 
-#define WORDSIZE 64
+#define WORD_SIZE 64
 
 void reverse(char *word){
-  const int l = strlen(word);
+  const int l = (int) strlen(word);
   int e= l-1;
-  int c = *word;
+  int c = 0;
 
   while(c > l){
     if (c == e) break;
-    const int t = word[c];
+    const char t = word[c];
     word[c] = word[e];
     word[e] = t;
     c++;
@@ -18,7 +19,9 @@ void reverse(char *word){
 }
 
 
-int main (main) {
+int main (void) {
+  char word[WORD_SIZE];
+
 
 
 
