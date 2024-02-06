@@ -2,11 +2,6 @@
 
 int main(void) {
   printf("Reveal Special characters\n");
-
-  // Take each character
-  // Put it back to screen
-  // Replace any special character by its literal simple as a string
-
   printf("Type your text: ");
   int c;
 
