@@ -1,27 +1,47 @@
 #include <stdio.h>
 
-#define TAB_SPACES 2
+#define MAX_BUFFER   1024
+#define SPACE        ' '
+#define TAB          '\t'
 
-void add_spaces (void) {
-  for(int i = 0; i < TAB_SPACES; i++) {
-    putchar(' ');
+int CalculateNumberOfSpaces(int Offset, int TabSize) {
+  return TabSize - (Offset % TabSize);
+}
+
+int get_line(char s[], int lim) {
+  int c, i;
+
+  for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+    s[i] = c;
+  if (c == '\n') {
+    s[i] = c;
+    ++i;
   }
+  s[i] = '\0';
+
+  return i;
 }
 
 int main(void) {
-  int ch;
+  char Buffer[MAX_BUFFER];
+  int TabSize = 4;
 
-  printf("Type a word:\n");
+  int i, j, k, l;
 
-  while((ch = getchar()) != EOF) {
-    if(ch == '\t') {
-      add_spaces();
-    } else {
-      putchar(ch);
+  while (get_line(Buffer, MAX_BUFFER) > 0) {
+    for (i = 0, l = 0; Buffer[i] != '\0'; i++) {
+      if (Buffer[i] == TAB) {
+        j = CalculateNumberOfSpaces(l, TabSize);
+        for (k = 0; k < j; k++) {
+          putchar(SPACE);
+          l++;
+        }
+      } else {
+        putchar(Buffer[i]);
+        l++;
+      }
     }
   }
 
-  putchar('\n');
-
   return 0;
-} 
+}
