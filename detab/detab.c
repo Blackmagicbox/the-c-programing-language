@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define MAX_BUFFER   1024
 #define SPACE        ' '
@@ -8,37 +9,51 @@ int CalculateNumberOfSpaces(int Offset, int TabSize) {
   return TabSize - (Offset % TabSize);
 }
 
-int get_line(char s[], int lim) {
-  int c, i;
+int get_line(char line[], int limit) {
+  int ch, i;
 
-  for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-    s[i] = c;
-  if (c == '\n') {
-    s[i] = c;
+  // Read characters into line[] until limit is reached, EOF is encountered, or a newline ch is read
+  for (i = 0; i < limit - 1 && (ch = getchar()) != EOF && ch != '\n'; ++i) {
+    line[i] = ch;
+  }
+
+  // If a newline ch was read, add it to the line
+  if (ch == '\n') {
+    line[i] = ch;
     ++i;
   }
-  s[i] = '\0';
 
+  // Null-terminate the line
+  line[i] = '\0';
+
+  // Return the length of the line
   return i;
 }
 
-int main(void) {
+int main(int argc, char *argv[]) {
+  printf("Type a phrase\n");
   char Buffer[MAX_BUFFER];
-  int TabSize = 4;
+  // Set the tab size based on the command line argument, or default to 4
+  int TabSize = argv[1] ? atoi(argv[1]) : 4;
 
-  int i, j, k, l;
+  int ch, numSpaces, spaceIndex, outputLength;
 
+  // Process each line of input
   while (get_line(Buffer, MAX_BUFFER) > 0) {
-    for (i = 0, l = 0; Buffer[i] != '\0'; i++) {
-      if (Buffer[i] == TAB) {
-        j = CalculateNumberOfSpaces(l, TabSize);
-        for (k = 0; k < j; k++) {
+    // Process each character in the line
+    for (ch = 0, outputLength = 0; Buffer[ch] != '\0'; ch++) {
+      if (Buffer[ch] == TAB) {
+        // If the character is a tab, calculate the number of spaces to output
+        numSpaces = CalculateNumberOfSpaces(outputLength, TabSize);
+        // Output the calculated number of spaces
+        for (spaceIndex = 0; spaceIndex < numSpaces; spaceIndex++) {
           putchar(SPACE);
-          l++;
+          outputLength++;
         }
       } else {
-        putchar(Buffer[i]);
-        l++;
+        // If the character is not a tab, output it as is
+        putchar(Buffer[ch]);
+        outputLength++;
       }
     }
   }
