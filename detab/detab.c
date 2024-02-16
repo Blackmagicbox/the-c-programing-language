@@ -3,7 +3,7 @@
 
 #define MAX_BUFFER   1024
 #define SPACE        ' '
-#define TAB          '\t'
+#define TAB_CHARACTER          '\t'
 
 int CalculateNumberOfSpaces(int Offset, int TabSize) {
   return TabSize - (Offset % TabSize);
@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
   while (get_line(Buffer, MAX_BUFFER) > 0) {
     // Process each character in the line
     for (ch = 0, outputLength = 0; Buffer[ch] != '\0'; ch++) {
-      if (Buffer[ch] == TAB) {
+      if (Buffer[ch] == TAB_CHARACTER) {
         // If the character is a tab, calculate the number of spaces to output
         numSpaces = CalculateNumberOfSpaces(outputLength, TabSize);
         // Output the calculated number of spaces
