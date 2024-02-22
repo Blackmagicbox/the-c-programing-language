@@ -19,7 +19,7 @@ int getLine(char line[], int maxLine) {
   return i;
 }
 
-void foldLine(char line[], int maxLine, int foldLength) {
+void foldLine(char line[], int foldLength) {
   int i = 0;
   int j = 0;
   int spaceHolder = 0;
@@ -54,7 +54,7 @@ void foldLine(char line[], int maxLine, int foldLength) {
 int main(void) {
   char line[MAX_LINE_LENGTH];
   while (getLine(line, MAX_LINE_LENGTH)) {
-    foldLine(line, MAX_LINE_LENGTH, FOLD_LENGTH);
+    foldLine(line, FOLD_LENGTH);
     printf("%s", line);
   }
   return 0;
