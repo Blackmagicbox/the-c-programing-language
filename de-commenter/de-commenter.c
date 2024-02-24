@@ -13,6 +13,7 @@ int main(int argc, char *argv[]) {
   int start_comment = 0;
   int in_single_line_comment = 0;
   int in_multi_line_comment = 0;
+  int star_comment = 0;
 
   if (argc < 2) {
     printf("Usage: %s <FILENAME>\n", argv[0]);
@@ -37,11 +38,17 @@ int main(int argc, char *argv[]) {
           } else {
             start_comment = 1;
           }
-        } else {
+        } else if (star_comment) {
           in_multi_line_comment = 0;
+          star_comment = 0;
         }
-      } else if (ch == MULTI_LINE_COMMENT_MARKER && start_comment) {
-        in_multi_line_comment = 1;
+      } else if (ch == MULTI_LINE_COMMENT_MARKER) {
+        if (start_comment) {
+          in_multi_line_comment = 1;
+          start_comment = 0;
+        } else if (in_multi_line_comment) {
+          star_comment = 1;
+        }
       } else if (!in_single_line_comment && !in_multi_line_comment && !start_comment) {
         *p = (char) ch;
         p++;
