@@ -1,9 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define MAX_LINE_BUFFER 1024
 
-int main(void) {
-  // Read A line.
+int main(int argc, char *argv[]) {
   int ch;
   char buffer[MAX_LINE_BUFFER];
   char *p = buffer;
@@ -11,7 +11,19 @@ int main(void) {
   int in_single_line_comment = 0;
   int in_multi_line_comment = 0;
 
-  while ((ch = getchar()) != EOF) {
+  if (argc < 2) {
+    printf("Usage: %s <FILENAME>\n", argv[0]);
+    exit(-1);
+  }
+
+  FILE *fp = fopen(argv[1], "r");
+
+  if (fp == NULL) {
+    printf("It was not possible to open the selected file\n");
+    exit(-1);
+  }
+
+  while ((ch = fgetc(fp)) != EOF) {
     if(ch !='\n') {
       if (ch == '/') {
         if (!in_multi_line_comment) {
