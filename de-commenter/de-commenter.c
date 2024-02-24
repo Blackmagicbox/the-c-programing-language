@@ -6,6 +6,9 @@
 #define COMMENT_STARTER_CHAR '/'
 #define MULTI_LINE_COMMENT_MARKER '*'
 
+
+
+// TODO: Simplify the logic removing the buffer and check for current and previous characters to assert the status.
 int main(int argc, char *argv[]) {
   int ch;
   char buffer[MAX_LINE_BUFFER];
